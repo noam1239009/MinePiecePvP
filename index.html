@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <!-- Firebase SDKs -->
 <script type="module">
   // Import the Firebase functions you need
@@ -42,6 +41,8 @@
       });
     });
   };
+<!DOCTYPE html>
+
 </script>
 
 <html>
@@ -62,6 +63,18 @@
 </head>
 
 <body>
+  <h2>🏴‍☠️ Leaderboard</h2>
+<div id="leaderboard">Loading...</div>
+<input id="usernameInput" placeholder="Username">
+<input id="scoreInput" type="number" placeholder="Score">
+<button onclick="saveScore(usernameInput.value, Number(scoreInput.value))">Add Score</button>
+<script>
+  // Load leaderboard on page load
+  window.onload = () => {
+    loadLeaderboard();
+  };
+</script>
+
   <h1>🏴‍☠️ One Piece Minecraft PvP Leaderboard</h1>
 
   <section id="auth">
