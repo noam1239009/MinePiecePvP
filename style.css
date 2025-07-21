@@ -1,26 +1,45 @@
 body {
-  background-color: #0a0a0a;
+  background-color: #121212;
   color: white;
-  font-family: 'Trebuchet MS', sans-serif;
-  text-align: center;
+  font-family: Arial, sans-serif;
+  margin: 0;
   padding: 20px;
 }
 
-input, button {
-  padding: 10px;
-  margin: 5px;
-  border-radius: 6px;
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+button {
+  background-color: #1e1e1e;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #333;
 }
 
 table {
-  margin: auto;
-  background-color: #1a1a1a;
+  width: 100%;
   border-collapse: collapse;
-  width: 80%;
-  margin-top: 20px;
 }
 
 th, td {
-  padding: 12px;
-  border: 1px solid white;
+  border: 1px solid #444;
+  padding: 10px;
+  text-align: left;
+}
+
+h2 {
+  margin-top: 20px;
+}
+
+#auth-panel, #submit-video {
+  margin-top: 20px;
 }
