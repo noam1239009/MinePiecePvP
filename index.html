@@ -1,4 +1,49 @@
 <!DOCTYPE html>
+<!-- Firebase SDKs -->
+<script type="module">
+  // Import the Firebase functions you need
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+  import { getDatabase, ref, set, get, onValue } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-database.js";
+
+  // Your web app's Firebase configuration
+  const firebaseConfig = {
+    apiKey: "YOUR_API_KEY",
+    authDomain: "one-piece-pvp.firebaseapp.com",
+    databaseURL: "https://one-piece-pvp-default-rtdb.europe-west1.firebasedatabase.app",
+    projectId: "one-piece-pvp",
+    storageBucket: "one-piece-pvp.appspot.com",
+    messagingSenderId: "316552757064",
+    appId: "1:316552757064:web:6f1804aef748ef40a518c7"
+  };
+
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+  const db = getDatabase(app);
+
+  // Example: Save user data
+  window.saveScore = function(username, score) {
+    set(ref(db, 'leaderboard/' + username), {
+      score: score
+    });
+  };
+
+  // Example: Display leaderboard
+  window.loadLeaderboard = function() {
+    const leaderboardRef = ref(db, 'leaderboard/');
+    onValue(leaderboardRef, (snapshot) => {
+      const data = snapshot.val();
+      const leaderboardDiv = document.getElementById("leaderboard");
+      leaderboardDiv.innerHTML = "";
+
+      const sortedUsers = Object.entries(data || {}).sort((a, b) => b[1].score - a[1].score);
+
+      sortedUsers.forEach(([username, userData]) => {
+        leaderboardDiv.innerHTML += `<p>${username}: ${userData.score}</p>`;
+      });
+    });
+  };
+</script>
+
 <html>
 
 <head>
