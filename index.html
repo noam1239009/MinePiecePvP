@@ -1,32 +1,50 @@
 <!DOCTYPE html>
-<html lang="en"><head>
-    <meta charset="UTF-8">    <meta name="viewport" content="width=device-width, initial-scale=1.0">    <title>🏴‍☠️ One Piece Minecraft PvP Leaderboard</title>
-    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-auth.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-database.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-storage.js"></script>
-    <link rel="stylesheet" href="styles.css"></head>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>🏴‍☠️ One Piece Minecraft PvP</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles.css">
+</head>
 <body>
-    <h1>🏴‍☠️ Leaderboard</h1>
-    <div id="leaderboard">        <p>Loading...</p>
-        <table>
-            <thead>
-                <tr>
-                    <th>Username</th>
-                    <th>Score</th>
-                </tr>
-            </thead>
-            <tbody id="leaderboard-body"></tbody>
-        </table>
-    </div>
 
-    <div id="auth-panel">        <h2>Register / Login</h2>
+  <div class="navbar">
+    <h1>🏴‍☠️ One Piece Minecraft PvP</h1>
+    <nav>
+      <button id="homeButton">Home</button>
+      <button id="leaderboardButton">Leaderboard</button>
+    </nav>
+  </div>
+
+  <div id="content">
+    <div id="home">
+      <h2>Leaderboard</h2>
+      <div id="leaderboard">
+        <table>
+          <thead>
+            <tr><th>Username</th><th>Score</th></tr>
+          </thead>
+          <tbody id="leaderboard-body"></tbody>
+        </table>
+      </div>
+
+      <div id="auth-panel">
+        <h2>Register / Login</h2>
         <input type="text" id="mcname" placeholder="Minecraft Username" required>
         <input type="password" id="password" placeholder="Password" required>
         <button id="registerButton">Register</button>
         <button id="loginButton">Login</button>
+      </div>
     </div>
 
-    <script src="script.js"></script>
+    <div id="submit-video" style="display:none;">
+      <h2>Submit Video</h2>
+      <input type="file" id="videoInput" accept="video/mp4" required>
+      <button id="uploadVideoButton">Upload Video</button>
+    </div>
+  </div>
+
+  <!-- Load JS -->
+  <script type="module" src="script.js"></script>
 </body>
 </html>
